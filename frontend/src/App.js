@@ -8,6 +8,11 @@ import MenuPage from './pages/MenuPage';
 import CheckoutPage from './pages/CheckoutPage';
 import AdminDashboard from './pages/AdminDashboard';
 import { CartProvider } from './context/CartContext';
+import axios from 'axios';
+
+const API_BASE_URL = process.env.REACT_APP_API_URL || 'https://YOUR-BACKEND-NAME.vercel.app/api';
+
+const api = axios.create({ baseURL: API_BASE_URL });
 
 function App() {
   return (
