@@ -15,7 +15,10 @@ app = FastAPI(
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=[
+        "http://localhost:3000",
+        "https://malik-lotus-restaurant.vercel.app",  # Add your live frontend URL here
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
