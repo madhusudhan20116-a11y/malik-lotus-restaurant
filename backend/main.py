@@ -30,6 +30,13 @@ app.include_router(restaurant.router)
 
 @app.on_event("startup")
 def seed_initial_data():
+    try:
+        db = SessionLocal()
+        # Seed initial admin and category items...
+        db.close()
+    except Exception as e:
+        print(f"Startup DB Seed Warning: {e}")
+def seed_initial_data():
     db = SessionLocal()
     try:
         admin = db.query(models.Admin).filter(models.Admin.username == "admin").first()
